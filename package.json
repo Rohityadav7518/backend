@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "a backend project",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "backend_moongoos"
+  },
+  "keywords": [
+    "hi"
+  ],
+  "author": "rohit yadav",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.3",
+    "multer": "^1.4.5-lts.1",
+    "prettier": "^3.3.3",
+    "urlencoder": "^0.1.0"
+  }
+}
