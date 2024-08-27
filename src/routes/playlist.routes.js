@@ -6,7 +6,7 @@ import {
 } from '../controller/play.controller.js'
 
 import { verifyJWT } from "../middleware/auth.middleware.js"
-const router = Router
+const router = Router()
 
 router.use(verifyJWT)
 router.route("/").post(createPlaylist)

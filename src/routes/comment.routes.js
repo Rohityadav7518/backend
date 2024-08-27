@@ -7,7 +7,7 @@ import { verifyJWT } from '../middleware/auth.middleware.js'
 import { Router } from "express";
 
 
-const router = Router;
+const router = Router()
 
 router.use(verifyJWT)
 router.route(":/videoId").get(getVideoComment).post(addComment)

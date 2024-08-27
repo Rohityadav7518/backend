@@ -4,7 +4,7 @@ import { getAllVIdeo, getVideoById, deleteVideo, videoUpdate, publishAVideo, tog
 import { uplaod } from "../middleware/multer.middleware.js";
 import { Router } from "express";
 
-const router = Router
+const router = Router()
 
 router.use(verifyJWT)
 router.route("/").get(getAllVIdeo).post(uplaod.fields([

@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { getChannelSuscribed, getChannelSuscriber, toggleSuscription } from "../controller/suscription.controller.js"
-import { verfifyJWT } from "../middleware/auth.middleware.js"
+import { verifyJWT } from "../middleware/auth.middleware.js"
 
-const router = Router
-router.use(verfifyJWT)
+const router = Router()
+router.use(verifyJWT)
 
 router.route("/c/:channelId").get(getChannelSuscribed).post(toggleSuscription)
 

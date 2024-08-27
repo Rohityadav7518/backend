@@ -1,14 +1,14 @@
 import { asyncHandler } from "../../utils/asyncHandler.js";
 import { ApiError } from "../../utils/ApiError.js"
 import { User } from "../models/user.model.js"
-import { uploadOnCloudinary } from "../utils/cloudinary.js"
-import { ApiResponse } from "../utils/ApiResponse.js";
+import { uploadOnCloudinary } from "../../utils/cloudinary.js"
+import { ApiResponse } from "../../utils/ApiResponse.js";
 import jwt from "jsonwebtoken"
 import mongoose from "mongoose";
 
 const generateAccessAndRefreshToken = async (userId) => {
     try {
-        const user = await user.findById(userId)
+        const user = await User.findById(userId)
         const accessToken = user.generateAccessToken()
         const refreshToken = user.generateRefreshToken(
 
@@ -31,7 +31,6 @@ const registerUser = asyncHandler(async (req, res) => {
     if ([fullName, username, email, password].some((field) => field?.trim() === "")) {
         throw new ApiError(400, "All field are required")
     }
-
     const existedUser = await User.findOne({
         $or: [{ username }, { email }]
     })

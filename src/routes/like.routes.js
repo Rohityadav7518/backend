@@ -3,7 +3,7 @@ import { getLikedVideo, toggleCommentLike, toggleVideoLike, toogleTweetLike } fr
 
 import { verifyJWT } from "../middleware/auth.middleware.js";
 
-const router = Router
+const router = Router()
 router.use(verifyJWT)
 
 router.route("/toogle/v/:videos").post(toggleVideoLike)

@@ -1,20 +1,32 @@
 import { Router } from "express";
 
-import { verifyJWT } from "../middleware/auth.middleware"
-import { getCurrentUser, getUserChannelProfile, getWatchHistory, updateAccountDetail, updateUserAvatar, updateUserCoverImage, chnageCurrentPassword, loginUser, logoutUser, refreshAccessToken, registerUser, } from "../controller/user.controller.js"
+import {
+    registerUser,
+    loginUser,
+    logoutUser,
+    refreshAccessToken,
+    chnageCurrentPassword,
+    getCurrentUser,
+    updateAccountDetail,
+    updateUserAvatar,
+    updateUserCoverImage,
+    getUserChannelProfile,
+    getWatchHistory
+} from "../controller/user.controller.js"
 import { uplaod } from "../middleware/multer.middleware.js";
+import { verifyJWT } from "../middleware/auth.middleware.js";
 
 
-const router = Router
-router.use(verifyJWT)
-
-router.route("/register").post(uplaod.fields([{
-    name: "avatar",
-    maxCount: 1
-}, {
-    name: "coverImage",
-    maxCount: 1
-}]), registerUser)
+const router = Router()
+router.route("/register").post(uplaod.fields([
+    {
+        name: "avatar",
+        maxCount: 1
+    }, {
+        name: "coverImage",
+        maxCount: 1
+    }
+]), registerUser)
 
 router.route("/login").post(loginUser)
 
